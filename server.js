@@ -1,4 +1,3 @@
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -8,11 +7,11 @@ import confessRoutes from "./routes/confess.js";
 dotenv.config();
 const app = express();
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// DB connection
+// Connexion à la base MongoDB
 connectDB();
 
 // Routes
@@ -21,6 +20,6 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "Backend Confessy is running ✅" });
 });
 
-// Server
+// Lancement serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
